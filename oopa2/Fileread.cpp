@@ -1,6 +1,7 @@
 
 #include "Fileread.h"
 #include <algorithm>
+#include <iostream>
 
 filereader::filereader(const std::string path) {
     my_file_.open(path);
@@ -35,12 +36,12 @@ void filereader::ReadFile() {
                         amount_links_++;
                         tmp.erase(std::remove_if(tmp.begin(), tmp.end(), isspace), tmp.end());
                         tmp.erase(remove(tmp.begin(), tmp.end(), '\t'));
-                        links_.push_back(tmp + "\n");
+                        links_.insert(std::pair<std::string, std::string>(tmp.substr(0, tmp.find(":")), tmp.substr(tmp.find(":")+1, tmp.find(';'))));
                     } else {
                         tmp.erase(std::remove_if(tmp.begin(), tmp.end(), isspace), tmp.end());
                         tmp.erase(remove(tmp.begin(), tmp.end(), '\t'));
                         amount_types_++;
-                        types_.push_back(tmp + "\n");
+                        types_.insert(std::pair<std::string, std::string>(tmp.substr(0, tmp.find(":")), tmp.substr(tmp.find(":") + 1, (tmp.find(';')))));
                     }
                 }
             }
@@ -57,10 +58,14 @@ void filereader::ReadFile() {
 void filereader::DisplayList() {
     std::cout << "types: \n";
     for (auto i = types_.begin(); i != types_.end(); ++i) {
-        std::cout << *i;
+        std::cout << i->first << ":" << i->second << std::endl;
     }
     std::cout << "\n" << "links: \n";
     for (auto j = links_.begin(); j != links_.end(); ++j) {
-        std::cout << *j;
+        std::cout << j->first << ":" << j->second << std::endl;
     }
+}
+
+std::map<std::string, std::string> filereader::getTypes() {
+    return types_;
 }

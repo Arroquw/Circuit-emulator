@@ -143,7 +143,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AndNode.cpp" />
+    <ClCompile Include="CircuitVisitor.cpp" />
     <ClCompile Include="Fileread.cpp" />
+    <ClCompile Include="IOclass.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeFactory.cpp" />
@@ -156,9 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AndNode.h" />
+    <ClInclude Include="CircuitVisitor.h" />
     <ClInclude Include="Fileread.h" />
+    <ClInclude Include="IOclass.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeFactory.h" />
+    <ClInclude Include="NodeVisitor.h" />
     <ClInclude Include="NotNode.h" />
     <ClInclude Include="OrNode.h" />
     <ClInclude Include="XorNode.h" />
