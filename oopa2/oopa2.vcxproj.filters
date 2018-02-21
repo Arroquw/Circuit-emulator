@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\oopa\oopa\Fileread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\oopa\oopa\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NodeFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -39,14 +33,17 @@
     <ClCompile Include="XorNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fileread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="circuit1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\oopa\oopa\Fileread.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NodeFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -63,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="XorNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fileread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

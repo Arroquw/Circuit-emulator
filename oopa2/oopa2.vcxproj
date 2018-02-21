@@ -142,9 +142,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\oopa\oopa\Fileread.cpp" />
-    <ClCompile Include="..\..\oopa\oopa\Main.cpp" />
     <ClCompile Include="AndNode.cpp" />
+    <ClCompile Include="Fileread.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeFactory.cpp" />
     <ClCompile Include="NotNode.cpp" />
@@ -155,8 +155,8 @@
     <Text Include="circuit1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\oopa\oopa\Fileread.h" />
     <ClInclude Include="AndNode.h" />
+    <ClInclude Include="Fileread.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeFactory.h" />
     <ClInclude Include="NotNode.h" />
