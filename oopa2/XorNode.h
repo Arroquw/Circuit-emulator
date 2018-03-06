@@ -6,7 +6,7 @@ class XorNode :
     public Node {
 public:
     Node * clone() const override;
-    void action() const override;
+    void action() override;
     void accept(CircuitVisitor& visitor) override;
     virtual ~XorNode();
 private:

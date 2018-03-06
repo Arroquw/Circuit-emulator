@@ -5,17 +5,26 @@
 #include "XorNode.h"
 
 void CircuitVisitor::visit(AndNode* pNode) {
-    // output = input1 & input2;
+    auto tmp = pNode->GetValue();
+    for (auto i = 0u; i < pNode->GetEdges().size(); ++i)
+        tmp &= pNode->GetEdges()[i]->GetInputValue();
+    pNode->SetValue(tmp);
 }
 
 void CircuitVisitor::visit(OrNode* pNode) {
-    // output = input1 | input2;
+    auto tmp = pNode->GetValue();
+    for (auto i = 0u; i < pNode->GetEdges().size(); ++i)
+        tmp |= pNode->GetEdges()[i]->GetInputValue();
+    pNode->SetValue(tmp);
 }
 
 void CircuitVisitor::visit(NotNode* pNode) {
-    // output = !input;
+    pNode->SetValue(!pNode->GetEdges()[0]->GetInputValue());
 }
 
 void CircuitVisitor::visit(XorNode* pNode) {
-    // output = input1 ^ input2;
+    auto tmp = pNode->GetValue();
+    for (auto i = 0u; i < pNode->GetEdges().size(); ++i)
+        tmp ^= pNode->GetEdges()[i]->GetInputValue();
+    pNode->SetValue(tmp);
 }

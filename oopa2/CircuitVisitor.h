@@ -1,5 +1,6 @@
 #pragma once
 #include "NodeVisitor.h"
+
 class CircuitVisitor :
     public NodeVisitor {
 public:

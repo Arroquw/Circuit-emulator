@@ -42,7 +42,10 @@
     <ClCompile Include="CircuitVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IOclass.cpp">
+    <ClCompile Include="Edge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CircuitDriver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,7 +80,10 @@
     <ClInclude Include="CircuitVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IOclass.h">
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CircuitDriver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,3 @@
-
 #include "Fileread.h"
 #include <algorithm>
 #include <iostream>
@@ -10,7 +9,6 @@ filereader::filereader(const std::string path) {
 }
 
 filereader::~filereader() {
-
 }
 
 void filereader::ReadFile() {
@@ -23,6 +21,8 @@ void filereader::ReadFile() {
             } else if (tmp.find("nodes") != std::string::npos) {
                 cnt = 0;
             }
+            tmp.erase(remove_if(tmp.begin(), tmp.end(), isspace), tmp.end());
+            tmp.erase(remove(tmp.begin(), tmp.end(), '\t'));
             if (tmp != "") {
                 if (tmp.find('#') == std::string::npos) {
                     if (cnt) {
@@ -34,14 +34,14 @@ void filereader::ReadFile() {
                             }
                         }
                         amount_links_++;
-                        tmp.erase(std::remove_if(tmp.begin(), tmp.end(), isspace), tmp.end());
-                        tmp.erase(remove(tmp.begin(), tmp.end(), '\t'));
-                        links_.insert(std::pair<std::string, std::string>(tmp.substr(0, tmp.find(":")), tmp.substr(tmp.find(":")+1, tmp.find(';'))));
+                        links_.insert(std::pair<std::string, std::string>(
+                            tmp.substr(0, tmp.find(":")),
+                            tmp.substr(tmp.find(":") + 1, tmp.find(';'))));
                     } else {
-                        tmp.erase(std::remove_if(tmp.begin(), tmp.end(), isspace), tmp.end());
-                        tmp.erase(remove(tmp.begin(), tmp.end(), '\t'));
                         amount_types_++;
-                        types_.insert(std::pair<std::string, std::string>(tmp.substr(0, tmp.find(":")), tmp.substr(tmp.find(":") + 1, (tmp.find(';')))));
+                        types_.insert(std::pair<std::string, std::string>(
+                            tmp.substr(0, tmp.find(":")),
+                            tmp.substr(tmp.find(":") + 1, (tmp.find(';')))));
                     }
                 }
             }
@@ -64,8 +64,13 @@ void filereader::DisplayList() {
     for (auto j = links_.begin(); j != links_.end(); ++j) {
         std::cout << j->first << ":" << j->second << std::endl;
     }
+    std::cout << std::endl;
 }
 
-std::map<std::string, std::string> filereader::getTypes() {
+const std::map<std::string, std::string>& filereader::GetTypes() {
     return types_;
+}
+
+const std::map<std::string, std::string>& filereader::GetLinks() {
+    return links_;
 }

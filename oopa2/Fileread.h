@@ -4,7 +4,6 @@
 #include <string>
 #include <iterator>
 #include "NodeFactory.h"
-#include "IOclass.h"
 #include <vector>
 
 class filereader {
@@ -13,7 +12,8 @@ public:
     virtual ~filereader();
     virtual void ReadFile();
     virtual void DisplayList();
-    virtual std::map<std::string, std::string> getTypes();
+    virtual const std::map<std::string, std::string>& GetTypes();
+    virtual const std::map<std::string, std::string>& GetLinks();
 private:
     std::ifstream my_file_;
     std::map<std::string, std::string> types_;

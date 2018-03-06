@@ -26,9 +26,8 @@ NodeFactory::NodeMap& NodeFactory::getMap() {
 Node* NodeFactory::create(const char* szID) {
     auto& cmap = getMap();
     const NodeMap::const_iterator iFind = cmap.find(szID);
-
     if (iFind == cmap.end()) {
         return nullptr;
-    } 
+    }
     return iFind->second->clone();
 }
