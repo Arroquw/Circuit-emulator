@@ -152,6 +152,7 @@
     <ClCompile Include="NodeFactory.cpp" />
     <ClCompile Include="NotNode.cpp" />
     <ClCompile Include="OrNode.cpp" />
+    <ClCompile Include="Probe.cpp" />
     <ClCompile Include="XorNode.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="NodeVisitor.h" />
     <ClInclude Include="NotNode.h" />
     <ClInclude Include="OrNode.h" />
+    <ClInclude Include="Probe.h" />
     <ClInclude Include="XorNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

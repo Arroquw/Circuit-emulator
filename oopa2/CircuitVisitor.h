@@ -8,5 +8,6 @@ public:
     void visit(OrNode*) override;
     void visit(NotNode*) override;
     void visit(XorNode*) override;
+    void visit(Probe*) override;
 };
 

@@ -1,5 +1,6 @@
 #pragma once
 
+class Probe;
 class XorNode;
 class NotNode;
 class OrNode;
@@ -12,5 +13,6 @@ public:
     virtual void visit(OrNode*) = 0;
     virtual void visit(NotNode*) = 0;
     virtual void visit(XorNode*) = 0;
+    virtual void visit(Probe*) = 0;
 };
 
