@@ -51,6 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="circuit1.txt" />
+    <Text Include="circuit2.txt" />
+    <Text Include="CIRCUIT3.TXT" />
+    <Text Include="circuit4.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NodeFactory.h">

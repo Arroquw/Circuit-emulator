@@ -9,9 +9,10 @@ public:
     virtual ~CircuitDriver();
     virtual void CreateNodes();
     virtual void CreateEdges();
+    virtual void DriveValues();
 private:
     filereader reader_;
     CircuitVisitor visitor_;
-    std::vector<Node*> nodes_;
+    std::map<std::string, Node*> nodes_;
 };
 
