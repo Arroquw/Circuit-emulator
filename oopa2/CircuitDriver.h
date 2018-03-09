@@ -10,9 +10,10 @@ public:
     virtual void CreateNodes();
     virtual void CreateEdges();
     virtual void DriveValues();
+    virtual Node* FindValue(std::vector<Node*> vec, std::string);
 private:
     filereader reader_;
     CircuitVisitor visitor_;
-    std::map<std::string, Node*> nodes_;
+    std::vector<Node*> nodes_;
 };
 

@@ -17,7 +17,7 @@ Node* XorNode::clone() const {
 
 void XorNode::action() {
     std::cout << GetName() << ", XOR:\n";
-    std::for_each(GetEdges().begin(), GetEdges().end(), [](Edge* x) {std::cout << x->GetName() << std::endl;});
+    std::for_each(GetNodes().begin(), GetNodes().end(), [](Node* x) {std::cout << x->GetName() << std::endl;});
 }
 
 

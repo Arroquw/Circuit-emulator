@@ -17,7 +17,7 @@ Node* NotNode::clone() const {
 
 void NotNode::action() {
     std::cout << GetName() << ", NOT:\n";
-    std::for_each(GetEdges().begin(), GetEdges().end(), [](Edge* x) {std::cout << x->GetName() << std::endl;});
+    std::for_each(GetNodes().begin(), GetNodes().end(), [](Node* x) {std::cout << x->GetName() << std::endl;});
 }
 
 void NotNode::accept(CircuitVisitor& visitor) {

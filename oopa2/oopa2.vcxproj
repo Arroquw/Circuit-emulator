@@ -145,8 +145,8 @@
     <ClCompile Include="AndNode.cpp" />
     <ClCompile Include="CircuitDriver.cpp" />
     <ClCompile Include="CircuitVisitor.cpp" />
-    <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Fileread.cpp" />
+    <ClCompile Include="InputNode.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeFactory.cpp" />
@@ -160,13 +160,14 @@
     <Text Include="circuit2.txt" />
     <Text Include="CIRCUIT3.TXT" />
     <Text Include="circuit4.txt" />
+    <Text Include="circuit5.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AndNode.h" />
     <ClInclude Include="CircuitDriver.h" />
     <ClInclude Include="CircuitVisitor.h" />
-    <ClInclude Include="Edge.h" />
     <ClInclude Include="Fileread.h" />
+    <ClInclude Include="InputNode.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeFactory.h" />
     <ClInclude Include="NodeVisitor.h" />

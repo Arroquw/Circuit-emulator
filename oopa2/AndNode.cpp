@@ -16,7 +16,7 @@ Node* AndNode::clone() const {
 
 void AndNode::action() {
     std::cout << GetName() << ", AND " << ":\n";
-    std::for_each(GetEdges().begin(), GetEdges().end(), [](Edge* x) {std::cout << x->GetName() << std::endl;});
+    std::for_each(GetNodes().begin(), GetNodes().end(), [](Node* x) {std::cout << x->GetName() << std::endl;});
 }
 
 void AndNode::accept(CircuitVisitor& visitor) {

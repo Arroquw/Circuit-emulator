@@ -9,5 +9,6 @@ public:
     void visit(NotNode*) override;
     void visit(XorNode*) override;
     void visit(Probe*) override;
+    void visit(InputNode*) override;
 };
 

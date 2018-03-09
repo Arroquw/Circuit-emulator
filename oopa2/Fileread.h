@@ -12,12 +12,14 @@ public:
     virtual ~filereader();
     virtual void ReadFile();
     virtual void DisplayList();
-    virtual const std::map<std::string, std::string>& GetTypes();
-    virtual const std::map<std::string, std::string>& GetLinks();
+    virtual const std::vector<std::string>& GetTypes();
+    virtual const std::vector<std::string>& GetLinks();
+    virtual int GetAi();
+    virtual int GetAo();
 private:
     std::ifstream my_file_;
-    std::map<std::string, std::string> types_;
-    std::map<std::string, std::string> links_;
-    int amount_links_;
-    int amount_types_;
+    std::vector<std::string> types_;
+    std::vector<std::string> links_;
+    int amount_inputs_;
+    int amount_outputs_;
 };

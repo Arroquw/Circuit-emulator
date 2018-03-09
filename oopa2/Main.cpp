@@ -15,16 +15,19 @@ void checkForLeaks() {
 
 int main(int argc, char *argv[]) {
     checkForLeaks();
-    CircuitDriver a(argv[1]);
-    a.CreateNodes();
+    auto a = new CircuitDriver(argv[1]);
+    a->CreateNodes();
+    a->CreateEdges();
     try {
-        a.CreateEdges();
-    } catch (std::invalid_argument &e) {
-        std::cout << e.what() << std::endl << " Press enter to continue" << std::endl;
+        a->DriveValues();
+    }catch(const std::invalid_argument &e) {
+        std::cout << e.what() << std::endl;
+        std::cout << "Press enter to exit" << std::endl;
         std::cin.get();
+        delete a;
         return -1;
     }
-    a.DriveValues();
     std::cin.get();
+    delete a;
     return 0;
 }

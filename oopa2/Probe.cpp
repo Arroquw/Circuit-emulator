@@ -15,8 +15,8 @@ Node* Probe::clone() const {
 }
 
 void Probe::action() {
-    std::cout << GetName() << ", AND " << ":\n";
-    std::for_each(GetEdges().begin(), GetEdges().end(), [](Edge* x) {std::cout << x->GetName() << std::endl; });
+    std::cout << GetName() << ", Probe " << ":\n";
+    std::for_each(GetNodes().begin(), GetNodes().end(), [](Node* x) {std::cout << x->GetName() << std::endl; });
 }
 
 void Probe::accept(CircuitVisitor& visitor) {

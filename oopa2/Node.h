@@ -2,7 +2,6 @@
 #include "CircuitVisitor.h"
 #include <string>
 #include <vector>
-#include "Edge.h"
 
 class Node {
 public:
@@ -16,11 +15,11 @@ public:
     virtual void SetValue(const uint8_t value);
     virtual std::string& GetName();
     virtual uint8_t GetValue();
-    virtual std::vector<Edge*>& GetEdges();
-    virtual void SetEdges(const std::vector<Edge*>&);
-    virtual void Attach(Edge* edge);
+    virtual std::vector<Node*>& GetNodes();
+    virtual void SetNodes(const std::vector<Node*>&);
+    virtual void Attach(Node* edge);
 private:
-    std::vector<Edge*> edges_;
+    std::vector<Node*> nodes_;
     std::string name_;
     uint8_t value_;
 };

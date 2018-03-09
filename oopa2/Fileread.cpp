@@ -4,8 +4,8 @@
 
 filereader::filereader(const std::string path) {
     my_file_.open(path);
-    amount_links_ = 0;
-    amount_types_ = 0;
+    amount_inputs_ = 0;
+    amount_outputs_ = 0;
 }
 
 filereader::~filereader() {
@@ -26,29 +26,19 @@ void filereader::ReadFile() {
             if (tmp != "") {
                 if (tmp.find('#') == std::string::npos) {
                     if (cnt) {
-                        if (tmp.find(',')) {
-                            for (auto i = tmp.begin(); i != tmp.end(); ++i) {
-                                if (*i == ',') {
-                                    amount_links_++;
-                                }
-                            }
-                        }
-                        amount_links_++;
-                        links_.insert(std::pair<std::string, std::string>(
-                            tmp.substr(0, tmp.find(":")),
-                            tmp.substr(tmp.find(":") + 1, tmp.find(';'))));
+                        links_.push_back(tmp);
                     } else {
-                        amount_types_++;
-                        types_.insert(std::pair<std::string, std::string>(
-                            tmp.substr(0, tmp.find(":")),
-                            tmp.substr(tmp.find(":") + 1, (tmp.find(';')))));
+                        if(tmp.find("INPUT") != std::string::npos) {
+                            amount_inputs_++;
+                        } else if (tmp.find("PROBE") != std::string::npos) {
+                            amount_outputs_++;
+                        }
+                        types_.push_back(tmp);
                     }
                 }
             }
         }
         my_file_.close();
-        std::cout << amount_types_ << std::endl;
-        std::cout << amount_links_ << std::endl;
         DisplayList();
     } else {
         std::cout << "failed to open file";
@@ -58,19 +48,27 @@ void filereader::ReadFile() {
 void filereader::DisplayList() {
     std::cout << "types: \n";
     for (auto i = types_.begin(); i != types_.end(); ++i) {
-        std::cout << i->first << ":" << i->second << std::endl;
+        std::cout << *i << std::endl;
     }
     std::cout << "\n" << "links: \n";
     for (auto j = links_.begin(); j != links_.end(); ++j) {
-        std::cout << j->first << ":" << j->second << std::endl;
+        std::cout << *j << std::endl;
     }
     std::cout << std::endl;
 }
 
-const std::map<std::string, std::string>& filereader::GetTypes() {
+const std::vector<std::string>& filereader::GetTypes() {
     return types_;
 }
 
-const std::map<std::string, std::string>& filereader::GetLinks() {
+const std::vector<std::string>& filereader::GetLinks() {
     return links_;
+}
+
+int filereader::GetAi() {
+    return amount_inputs_;
+}
+
+int filereader::GetAo() {
+    return amount_outputs_;
 }

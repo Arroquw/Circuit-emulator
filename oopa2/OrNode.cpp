@@ -17,7 +17,7 @@ Node* OrNode::clone() const {
 
 void OrNode::action() {
     std::cout << GetName() << ", OR:\n";
-    std::for_each(GetEdges().begin(), GetEdges().end(), [](Edge* x) {std::cout << x->GetName() << std::endl;});
+    std::for_each(GetNodes().begin(), GetNodes().end(), [](Node* x) {std::cout << x->GetName() << std::endl;});
 }
 
 void OrNode::accept(CircuitVisitor& visitor) {
