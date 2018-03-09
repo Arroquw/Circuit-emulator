@@ -51,6 +51,12 @@
     <ClCompile Include="InputNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NandNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NorNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="circuit1.txt" />
@@ -94,6 +100,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InputNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NandNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NorNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

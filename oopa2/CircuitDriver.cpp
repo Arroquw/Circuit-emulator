@@ -1,6 +1,6 @@
 #include "CircuitDriver.h"
 #include "Node.h"
-#include <vld.h>
+//#include <vld.h>
 #include <iostream>
 #include <algorithm>
 
