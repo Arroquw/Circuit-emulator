@@ -49,7 +49,6 @@ void CircuitDriver::CreateNodes() {
     temp_vec.insert(temp_vec.end(), x.begin(), x.end());
     temp_vec.insert(temp_vec.end(), y.begin(), y.end());
     temp_vec.insert(temp_vec.end(), z.begin(), z.end());
-
     nodes_ = temp_vec;
 }
 
@@ -84,7 +83,7 @@ void CircuitDriver::DriveValues() {
         node->accept(visitor_);
         std::cout << node->GetName() << ": " << static_cast<int>(node->GetValue()) << std::endl;
         if (node->GetValue() > 1) {
-            throw std::invalid_argument("Nodes with feedback detected!Please make sure there is no feedback present in the provided circuit.");
+            throw std::invalid_argument("Bad nodes Detected! Please make sure there is no feedback present in the provided circuit, and that every node is connected.");
         } 
     });
 }
