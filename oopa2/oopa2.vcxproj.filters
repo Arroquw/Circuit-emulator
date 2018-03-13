@@ -13,24 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Nodes">
+      <UniqueIdentifier>{8b9c0313-c027-477b-a0f2-7d002cf61faf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Nodes">
+      <UniqueIdentifier>{b23a5321-7497-4f61-8beb-d43293aeecf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NodeFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AndNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OrNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NotNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="XorNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Fileread.cpp">
@@ -45,10 +36,25 @@
     <ClCompile Include="CircuitDriver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Probe.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AndNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
     </ClCompile>
     <ClCompile Include="InputNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="OrNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Probe.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="XorNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="NotNode.cpp">
+      <Filter>Source Files\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,21 +69,6 @@
     <ClInclude Include="NodeFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AndNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OrNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NotNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="XorNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Fileread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -90,10 +81,25 @@
     <ClInclude Include="CircuitDriver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Probe.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AndNode.h">
+      <Filter>Header Files\Nodes</Filter>
     </ClInclude>
     <ClInclude Include="InputNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="NotNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="OrNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Probe.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="XorNode.h">
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
