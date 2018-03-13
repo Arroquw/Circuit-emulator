@@ -148,8 +148,10 @@
     <ClCompile Include="Fileread.cpp" />
     <ClCompile Include="InputNode.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="NandNode.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeFactory.cpp" />
+    <ClCompile Include="NorNode.cpp" />
     <ClCompile Include="NotNode.cpp" />
     <ClCompile Include="OrNode.cpp" />
     <ClCompile Include="Probe.cpp" />
@@ -168,9 +170,11 @@
     <ClInclude Include="CircuitVisitor.h" />
     <ClInclude Include="Fileread.h" />
     <ClInclude Include="InputNode.h" />
+    <ClInclude Include="NandNode.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeFactory.h" />
     <ClInclude Include="NodeVisitor.h" />
+    <ClInclude Include="NorNode.h" />
     <ClInclude Include="NotNode.h" />
     <ClInclude Include="OrNode.h" />
     <ClInclude Include="Probe.h" />

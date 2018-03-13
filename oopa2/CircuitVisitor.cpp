@@ -4,6 +4,8 @@
 #include "NotNode.h"
 #include "XorNode.h"
 #include "Probe.h"
+#include "NorNode.h"
+#include "NandNode.h"
 
 void CircuitVisitor::visit(AndNode* pNode) {
     auto tmp = 1;
@@ -11,6 +13,15 @@ void CircuitVisitor::visit(AndNode* pNode) {
         tmp &= pNode->GetNodes()[i]->GetValue();
     pNode->SetValue(tmp);
 }
+
+void CircuitVisitor::visit(NandNode* pNode) {
+	auto tmp = 0;
+	for (auto i = 0u; i < pNode->GetNodes().size(); ++i) {
+		tmp &= pNode->GetNodes()[i]->GetValue();
+		tmp = ~tmp;
+	}
+}
+
 
 void CircuitVisitor::visit(OrNode* pNode) {
     auto tmp = 0;
@@ -28,6 +39,15 @@ void CircuitVisitor::visit(XorNode* pNode) {
     for (auto i = 0u; i < pNode->GetNodes().size(); ++i)
         tmp ^= pNode->GetNodes()[i]->GetValue();
     pNode->SetValue(tmp);
+}
+
+void CircuitVisitor::visit(NorNode* pNode) {
+	auto tmp = 0;
+	for (auto i = 0u; i < pNode->GetNodes().size(); ++i) {
+		tmp |= pNode->GetNodes()[i]->GetValue();
+		tmp = ~tmp;
+	}
+	pNode->SetValue(tmp);
 }
 
 void CircuitVisitor::visit(Probe* pNode) {
