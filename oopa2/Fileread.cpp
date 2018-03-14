@@ -4,8 +4,6 @@
 
 Filereader::Filereader(const std::string path) {
     my_file_.open(path);
-    amount_inputs_ = 0;
-    amount_outputs_ = 0;
 }
 
 Filereader::~Filereader() {
@@ -28,11 +26,6 @@ void Filereader::ReadFile() {
                     if (cnt) {
                         links_.push_back(tmp);
                     } else {
-                        if(tmp.find("INPUT") != std::string::npos) {
-                            amount_inputs_++;
-                        } else if (tmp.find("PROBE") != std::string::npos) {
-                            amount_outputs_++;
-                        }
                         types_.push_back(tmp);
                     }
                 }
@@ -62,12 +55,4 @@ const std::vector<std::string>& Filereader::GetTypes() {
 
 const std::vector<std::string>& Filereader::GetLinks() {
     return links_;
-}
-
-int Filereader::GetAi() {
-    return amount_inputs_;
-}
-
-int Filereader::GetAo() {
-    return amount_outputs_;
 }
