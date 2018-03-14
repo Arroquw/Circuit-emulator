@@ -1,6 +1,7 @@
 #pragma once
 #include "Fileread.h"
 #include "CircuitVisitor.h"
+#include "Node.h"
 
 class CircuitDriver {
 public:
@@ -12,7 +13,7 @@ public:
     virtual void DriveValues();
     virtual Node* FindValue(std::vector<Node*> vec, std::string);
 private:
-    filereader reader_;
+    Filereader reader_;
     CircuitVisitor visitor_;
     std::vector<Node*> nodes_;
 };

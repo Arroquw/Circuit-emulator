@@ -12,5 +12,5 @@ public:
 private:
     InputNode();
     explicit InputNode(const char*);
-    static InputNode m_cStaticMember_;
+    static InputNode m_c_static_member_;
 };

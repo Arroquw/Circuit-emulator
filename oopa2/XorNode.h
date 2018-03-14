@@ -12,6 +12,6 @@ public:
 private:
     XorNode();
     explicit XorNode(const char*);
-    static XorNode m_cStaticMember_;
+    static XorNode m_c_static_member_;
 };
 

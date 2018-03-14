@@ -12,6 +12,6 @@ public:
 private:
     Probe();
     explicit Probe(const char*);
-    static Probe m_cStaticMember_;
+    static Probe m_c_static_member_;
 };
 

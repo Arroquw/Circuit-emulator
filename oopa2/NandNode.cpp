@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-NandNode NandNode::m_cStaticMember_("NAND");
+NandNode NandNode::m_c_static_member_("NAND");
 
 NandNode::NandNode() {
 }

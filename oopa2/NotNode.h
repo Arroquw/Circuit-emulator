@@ -12,6 +12,6 @@ public:
 private:
     NotNode();
     explicit NotNode(const char*);
-    static NotNode m_cStaticMember_;
+    static NotNode m_c_static_member_;
 };
 

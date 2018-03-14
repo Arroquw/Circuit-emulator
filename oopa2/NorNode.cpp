@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-NorNode NorNode::m_cStaticMember_("NOR");
+NorNode NorNode::m_c_static_member_("NOR");
 
 NorNode::NorNode() {
 }

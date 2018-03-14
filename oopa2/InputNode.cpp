@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-InputNode InputNode::m_cStaticMember_("INPUT");
+InputNode InputNode::m_c_static_member_("INPUT");
 
 InputNode::InputNode() {
 }

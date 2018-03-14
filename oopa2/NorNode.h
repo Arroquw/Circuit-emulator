@@ -12,5 +12,5 @@ public:
 private:
 	NorNode();
 	explicit NorNode(const char*);
-	static NorNode m_cStaticMember_;
+	static NorNode m_c_static_member_;
 };

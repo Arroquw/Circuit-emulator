@@ -12,6 +12,6 @@ public:
 private:
     OrNode();
     explicit OrNode(const char*);
-    static OrNode m_cStaticMember_;
+    static OrNode m_c_static_member_;
 };
 

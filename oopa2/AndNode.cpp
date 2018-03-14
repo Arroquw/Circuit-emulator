@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-AndNode AndNode::m_cStaticMember_("AND");
+AndNode AndNode::m_c_static_member_("AND");
 
 AndNode::AndNode() {
 }

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-OrNode OrNode::m_cStaticMember_("OR");
+OrNode OrNode::m_c_static_member_("OR");
 
 OrNode::OrNode() {
 }

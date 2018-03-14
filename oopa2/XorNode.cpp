@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-XorNode XorNode::m_cStaticMember_("XOR");
+XorNode XorNode::m_c_static_member_("XOR");
 
 XorNode::XorNode() {
 }

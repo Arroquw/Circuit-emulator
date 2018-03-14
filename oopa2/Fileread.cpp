@@ -2,16 +2,16 @@
 #include <algorithm>
 #include <iostream>
 
-filereader::filereader(const std::string path) {
+Filereader::Filereader(const std::string path) {
     my_file_.open(path);
     amount_inputs_ = 0;
     amount_outputs_ = 0;
 }
 
-filereader::~filereader() {
+Filereader::~Filereader() {
 }
 
-void filereader::ReadFile() {
+void Filereader::ReadFile() {
     std::string tmp;
     auto cnt = 0;
     if (my_file_.is_open()) {
@@ -44,7 +44,7 @@ void filereader::ReadFile() {
     }
 }
 
-void filereader::DisplayList() {
+void Filereader::DisplayList() {
     std::cout << "types: \n";
     for (auto i = types_.begin(); i != types_.end(); ++i) {
         std::cout << *i << std::endl;
@@ -56,18 +56,18 @@ void filereader::DisplayList() {
     std::cout << std::endl;
 }
 
-const std::vector<std::string>& filereader::GetTypes() {
+const std::vector<std::string>& Filereader::GetTypes() {
     return types_;
 }
 
-const std::vector<std::string>& filereader::GetLinks() {
+const std::vector<std::string>& Filereader::GetLinks() {
     return links_;
 }
 
-int filereader::GetAi() {
+int Filereader::GetAi() {
     return amount_inputs_;
 }
 
-int filereader::GetAo() {
+int Filereader::GetAo() {
     return amount_outputs_;
 }

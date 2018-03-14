@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-NotNode NotNode::m_cStaticMember_("NOT");
+NotNode NotNode::m_c_static_member_("NOT");
 
 NotNode::NotNode() {
 }

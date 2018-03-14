@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-Probe Probe::m_cStaticMember_("PROBE");
+Probe Probe::m_c_static_member_("PROBE");
 
 Probe::Probe() {
 }

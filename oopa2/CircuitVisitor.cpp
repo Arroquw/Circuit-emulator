@@ -8,79 +8,79 @@
 #include "NandNode.h"
 #include "InputNode.h"
 
-void CircuitVisitor::visit(AndNode* pNode) {
+void CircuitVisitor::visit(AndNode* p_node) {
     auto tmp = 1;
-    if (pNode->GetNodes().size() > 1) {
-        for (auto i = 0u; i < pNode->GetNodes().size(); ++i)
-            tmp &= pNode->GetNodes()[i]->GetValue();
+    if (p_node->GetNodes().size() > 1) {
+        for (auto i = 0u; i < p_node->GetNodes().size(); ++i)
+            tmp &= p_node->GetNodes()[i]->GetValue();
     } else {
         tmp = 100;
     }
-    pNode->SetValue(tmp);
+    p_node->SetValue(tmp);
 }
 
-void CircuitVisitor::visit(NandNode* pNode) {
+void CircuitVisitor::visit(NandNode* p_node) {
 	auto tmp = 0;
-    if (pNode->GetNodes().size() > 1) {
-        for (auto i = 0u; i < pNode->GetNodes().size(); ++i) {
-            tmp &= pNode->GetNodes()[i]->GetValue();
+    if (p_node->GetNodes().size() > 1) {
+        for (auto i = 0u; i < p_node->GetNodes().size(); ++i) {
+            tmp &= p_node->GetNodes()[i]->GetValue();
             tmp = ~tmp;
         }
     } else {
         tmp = 100;
     }
-    pNode->SetValue(tmp);
+    p_node->SetValue(tmp);
 }
 
-void CircuitVisitor::visit(OrNode* pNode) {
+void CircuitVisitor::visit(OrNode* p_node) {
     auto tmp = 0;
-    if (pNode->GetNodes().size() > 1) {
-        for (auto i = 0u; i < pNode->GetNodes().size(); ++i)
-            tmp |= pNode->GetNodes()[i]->GetValue();
+    if (p_node->GetNodes().size() > 1) {
+        for (auto i = 0u; i < p_node->GetNodes().size(); ++i)
+            tmp |= p_node->GetNodes()[i]->GetValue();
     } else {
         tmp = 100;
     }
-    pNode->SetValue(tmp);
+    p_node->SetValue(tmp);
 }
 
-void CircuitVisitor::visit(NotNode* pNode) {
-    if (pNode->GetNodes().size() > 0 && pNode->GetNodes().size() < 2)
-        pNode->SetValue(!pNode->GetNodes()[0]->GetValue());
+void CircuitVisitor::visit(NotNode* p_node) {
+    if (p_node->GetNodes().size() > 0 && p_node->GetNodes().size() < 2)
+        p_node->SetValue(!p_node->GetNodes()[0]->GetValue());
 }
 
-void CircuitVisitor::visit(XorNode* pNode) {
+void CircuitVisitor::visit(XorNode* p_node) {
     auto tmp = 0;
-    if (pNode->GetNodes().size() > 1) {
-        for (auto i = 0u; i < pNode->GetNodes().size(); ++i)
-            tmp ^= pNode->GetNodes()[i]->GetValue();
+    if (p_node->GetNodes().size() > 1) {
+        for (auto i = 0u; i < p_node->GetNodes().size(); ++i)
+            tmp ^= p_node->GetNodes()[i]->GetValue();
     } else {
         tmp = 100;
     }
-    pNode->SetValue(tmp);
+    p_node->SetValue(tmp);
 }
 
-void CircuitVisitor::visit(NorNode* pNode) {
+void CircuitVisitor::visit(NorNode* p_node) {
 	auto tmp = 0;
-    if (pNode->GetNodes().size() > 1) {
-        for (auto i = 0u; i < pNode->GetNodes().size(); ++i) {
-            tmp |= pNode->GetNodes()[i]->GetValue();
+    if (p_node->GetNodes().size() > 1) {
+        for (auto i = 0u; i < p_node->GetNodes().size(); ++i) {
+            tmp |= p_node->GetNodes()[i]->GetValue();
             tmp = ~tmp;
         }
     } else {
         tmp = 100;
     }
-	pNode->SetValue(tmp);
+	p_node->SetValue(tmp);
 }
 
-void CircuitVisitor::visit(Probe* pNode) {
-    if (pNode->GetNodes().size() > 0 && pNode->GetNodes().size() < 2)
-        pNode->SetValue(pNode->GetNodes()[0]->GetValue());
+void CircuitVisitor::visit(Probe* p_node) {
+    if (p_node->GetNodes().size() > 0 && p_node->GetNodes().size() < 2)
+        p_node->SetValue(p_node->GetNodes()[0]->GetValue());
     else
-        pNode->SetValue(100);
+        p_node->SetValue(100);
 }
 
-void CircuitVisitor::visit(InputNode* pNode) {
-    if(pNode->GetNodes().size() > 0) {
-        pNode->SetValue(100);
+void CircuitVisitor::visit(InputNode* p_node) {
+    if(p_node->GetNodes().size() > 0) {
+        p_node->SetValue(100);
     }
 }

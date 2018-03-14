@@ -3,13 +3,12 @@
 #include <list>
 #include <string>
 #include <iterator>
-#include "NodeFactory.h"
 #include <vector>
 
-class filereader {
+class Filereader {
 public:
-    explicit filereader(std::string path);
-    virtual ~filereader();
+    explicit Filereader(std::string path);
+    virtual ~Filereader();
     virtual void ReadFile();
     virtual void DisplayList();
     virtual const std::vector<std::string>& GetTypes();

@@ -11,8 +11,8 @@ public:
     static Node *create(const char*);
 private:
     static void assign(const char*, Node*);
-    typedef std::map<std::string, Node*> NodeMap;
-    static NodeMap &getMap();
+    typedef std::map<std::string, Node*> node_map;
+    static node_map &GetMap();
     friend class Node;
 };
 

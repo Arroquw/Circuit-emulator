@@ -12,6 +12,6 @@ public:
 private:
 	NandNode();
 	explicit NandNode(const char*);
-	static NandNode m_cStaticMember_;
+	static NandNode m_c_static_member_;
 };
 

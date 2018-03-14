@@ -12,6 +12,6 @@ public:
 private:
     AndNode();
     explicit AndNode(const char*);
-    static AndNode m_cStaticMember_;
+    static AndNode m_c_static_member_;
 };
 
