@@ -39,7 +39,6 @@ void filereader::ReadFile() {
             }
         }
         my_file_.close();
-        //DisplayList();
     } else {
         std::cout << "failed to open file";
     }

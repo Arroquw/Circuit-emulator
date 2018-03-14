@@ -25,31 +25,28 @@ void CircuitDriver::CreateNodes() {
             return 0;
     };
     auto types = reader_.GetTypes();
+    std::vector<Node*> inputs;
+    std::vector<Node*> nodes;
+    std::vector<Node*> outputs;
     for (auto i = types.begin(); i != types.end(); ++i) {
         const auto second = i->substr(i->find(":")+1, i->find(";") - i->find(":") - 1);
         const auto first = i->substr(0, i->find(":"));
         if (i->find("INPUT") != std::string::npos) {
-            nodes_.push_back(NodeFactory::create("INPUT"));
-            nodes_.back()->SetValue(f(*i));
+            inputs.push_back(NodeFactory::create("INPUT"));
+            inputs.back()->SetValue(f(*i));
+            inputs.back()->SetName(first);
+        } else if(i->find("NODE") != std::string::npos) {
+            nodes.push_back(NodeFactory::create(second.c_str()));
+            nodes.back()->SetName(first);
         } else {
-            nodes_.push_back(NodeFactory::create(second.c_str()));
+            outputs.push_back(NodeFactory::create(second.c_str()));
+            outputs.back()->SetName(first);
         }
-        nodes_.back()->SetName(first);
     }
-    std::vector<Node*> temp_vec;
-    int modifier;
-    if (reader_.GetAo() > 1) {
-        modifier = 0;
-    } else {
-        modifier = 1;
-    }
-    auto x = std::vector<Node*>(nodes_.begin(), nodes_.begin() + reader_.GetAi());
-    auto y = std::vector<Node*>(nodes_.begin() + reader_.GetAi() + reader_.GetAo()-modifier, nodes_.end());
-    auto z = std::vector<Node*>(nodes_.begin() + reader_.GetAi(), nodes_.begin() + reader_.GetAi()-modifier + reader_.GetAo());
-    temp_vec.insert(temp_vec.end(), x.begin(), x.end());
-    temp_vec.insert(temp_vec.end(), y.begin(), y.end());
-    temp_vec.insert(temp_vec.end(), z.begin(), z.end());
-    nodes_ = temp_vec;
+    nodes_.insert(nodes_.end(), inputs.begin(), inputs.end());
+    nodes_.insert(nodes_.end(), nodes.begin(), nodes.end());
+    nodes_.insert(nodes_.end(), outputs.begin(), outputs.end());
+   
 }
 
 void CircuitDriver::CreateEdges() {
@@ -65,23 +62,27 @@ void CircuitDriver::CreateEdges() {
             size_t pos;
             while ((pos = placeholder.find(delimiter)) != std::string::npos) {
                 const auto token = placeholder.substr(0, pos);
-                FindValue(nodes_, token)->Attach(FindValue(nodes_, first));
+                if(FindValue(nodes_, token) != nullptr) 
+                    FindValue(nodes_, token)->Attach(FindValue(nodes_, first));
                 placeholder.erase(0, pos + 1);
             }
-            FindValue(nodes_, placeholder)->Attach(FindValue(nodes_, first));
+            if(FindValue(nodes_, placeholder) != nullptr)
+                FindValue(nodes_, placeholder)->Attach(FindValue(nodes_, first));
         }
     }
 }
 
 void CircuitDriver::DriveValues() {
-    std::for_each(nodes_.begin(), nodes_.end(), [this](Node* node) {
+    std::for_each(nodes_.begin(), nodes_.end(), 
+        [this](Node* node) {
         auto edges = node->GetNodes();
         for (auto e : edges) {
             if (FindValue(nodes_, e->GetName()) != nullptr)
                 e->SetValue(FindValue(nodes_, e->GetName())->GetValue());
         }
         node->accept(visitor_);
-        std::cout << node->GetName() << ": " << static_cast<int>(node->GetValue()) << std::endl;
+        if(node->GetName().find("NODE") == std::string::npos)
+            std::cout << node->GetName() << ": " << static_cast<int>(node->GetValue()) << std::endl;
         if (node->GetValue() > 1) {
             throw std::invalid_argument("Bad nodes Detected! Please make sure there is no feedback present in the provided circuit, and that every node is connected.");
         } 

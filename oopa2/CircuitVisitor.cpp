@@ -18,10 +18,10 @@ void CircuitVisitor::visit(NandNode* pNode) {
 	auto tmp = 0;
 	for (auto i = 0u; i < pNode->GetNodes().size(); ++i) {
 		tmp &= pNode->GetNodes()[i]->GetValue();
-		tmp = ~tmp;
+        tmp = ~tmp;
 	}
+    pNode->SetValue(tmp);
 }
-
 
 void CircuitVisitor::visit(OrNode* pNode) {
     auto tmp = 0;

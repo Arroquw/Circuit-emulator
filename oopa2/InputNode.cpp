@@ -15,10 +15,8 @@ Node* InputNode::clone() const {
 }
 
 void InputNode::action() {
-    if (!GetNodes().empty()) {
         std::cout << GetName() << ", Input " << ":\n";
         std::for_each(GetNodes().begin(), GetNodes().end(), [](Node* x) {std::cout << x->GetName() << std::endl; });
-    }
 }
 
 void InputNode::accept(CircuitVisitor& visitor) {

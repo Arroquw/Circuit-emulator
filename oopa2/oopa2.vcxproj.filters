@@ -58,10 +58,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NandNode.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Nodes</Filter>
     </ClCompile>
     <ClCompile Include="NorNode.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Nodes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,11 +108,11 @@
     <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NandNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NorNode.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="NandNode.h">
+      <Filter>Header Files\Nodes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
