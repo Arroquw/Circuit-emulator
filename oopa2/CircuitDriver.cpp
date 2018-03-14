@@ -1,6 +1,6 @@
 #include "CircuitDriver.h"
 #include "Node.h"
-//#include <vld.h>
+// #include <vld.h>
 #include <iostream>
 #include <algorithm>
 
@@ -35,10 +35,10 @@ void CircuitDriver::CreateNodes() {
             inputs.push_back(NodeFactory::create("INPUT"));
             inputs.back()->SetValue(f(*i));
             inputs.back()->SetName(first);
-        } else if(i->find("NODE") != std::string::npos) {
+        } else if (i->find("NODE") != std::string::npos) {
             nodes.push_back(NodeFactory::create(second.c_str()));
             nodes.back()->SetName(first);
-        } else {
+        } else if (i->find("PROBE") != std::string::npos) {
             outputs.push_back(NodeFactory::create(second.c_str()));
             outputs.back()->SetName(first);
         }
@@ -70,7 +70,7 @@ void CircuitDriver::CreateEdges() {
 }
 
 void CircuitDriver::DriveValues() {
-    std::for_each(nodes_.begin(), nodes_.end(), 
+    std::for_each(nodes_.begin(), nodes_.end(),
         [this](Node* node) {
         auto edges = node->GetNodes();
         for (auto e : edges) {
@@ -78,11 +78,11 @@ void CircuitDriver::DriveValues() {
                 e->SetValue(FindValue(nodes_, e->GetName())->GetValue());
         }
         node->accept(visitor_);
-        if(node->GetName().find("NODE") == std::string::npos)
+        if (node->GetName().find("NODE") == std::string::npos)
             std::cout << node->GetName() << ": " << static_cast<int>(node->GetValue()) << std::endl;
         if (node->GetValue() > 1) {
             throw std::invalid_argument("Bad nodes Detected! Please make sure there is no feedback present in the provided circuit, and that every node is connected.");
-        } 
+        }
     });
 }
 

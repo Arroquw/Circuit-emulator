@@ -6,6 +6,7 @@
 #include "Probe.h"
 #include "NorNode.h"
 #include "NandNode.h"
+#include "InputNode.h"
 
 void CircuitVisitor::visit(AndNode* pNode) {
     auto tmp = 1;
@@ -78,5 +79,8 @@ void CircuitVisitor::visit(Probe* pNode) {
         pNode->SetValue(100);
 }
 
-void CircuitVisitor::visit(InputNode*) {
+void CircuitVisitor::visit(InputNode* pNode) {
+    if(pNode->GetNodes().size() > 0) {
+        pNode->SetValue(100);
+    }
 }
