@@ -46,7 +46,6 @@ void CircuitDriver::CreateNodes() {
     nodes_.insert(nodes_.end(), inputs.begin(), inputs.end());
     nodes_.insert(nodes_.end(), nodes.begin(), nodes.end());
     nodes_.insert(nodes_.end(), outputs.begin(), outputs.end());
-   
 }
 
 void CircuitDriver::CreateEdges() {
@@ -62,12 +61,10 @@ void CircuitDriver::CreateEdges() {
             size_t pos;
             while ((pos = placeholder.find(delimiter)) != std::string::npos) {
                 const auto token = placeholder.substr(0, pos);
-                if(FindValue(nodes_, token) != nullptr) 
-                    FindValue(nodes_, token)->Attach(FindValue(nodes_, first));
+                FindValue(nodes_, token)->Attach(FindValue(nodes_, first));
                 placeholder.erase(0, pos + 1);
             }
-            if(FindValue(nodes_, placeholder) != nullptr)
-                FindValue(nodes_, placeholder)->Attach(FindValue(nodes_, first));
+            FindValue(nodes_, placeholder)->Attach(FindValue(nodes_, first));
         }
     }
 }
